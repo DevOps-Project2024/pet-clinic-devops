@@ -32,5 +32,6 @@ jobs:
         run: aws eks update-kubeconfig --name petclinic
 
       - name: Deploy to EKS
-        run: helm upgrade --install petclinic ./helm/petclinic --namespace production --set image.tag=latest --values=./helm/petclinic/staging-values.yaml
+        run: helm upgrade --install petclinic ./helm/petclinic --namespace staging --set image.tag=latest -f ./helm/petclinic/staging-values.yaml
+
 	
