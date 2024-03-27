@@ -33,5 +33,5 @@ jobs:
 
       - name: Deploy to EKS
         run: |
-          helm install petclinic ./petclinic/ --values=./petclinic/staging-values.yaml
+          helm upgrade --install petclinic ./helm/petclinic --namespace production --set image.tag=latest --values=./helm/petclinic/staging-values.yaml
 	
