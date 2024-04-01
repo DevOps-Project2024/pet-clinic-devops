@@ -1,0 +1,33 @@
+namespace: production
+
+apigateway:
+  image: dstpetclinic/spring-petclinic-api-gateway
+  version: latest
+  replicaCount: 1
+
+customersservice:
+  image: dstpetclinic/spring-petclinic-customers-service
+  version: latest
+  dbhost: griepentrog.it:3306
+  dbname: d03fe35d
+  dbusername: d03fe35d
+  dbpassword: bkxQNnRKVFM2azMzRGRIVWNvZ2M=
+  replicaCount: 1
+
+vetsservice:
+  image: dstpetclinic/spring-petclinic-vets-service
+  version: latest
+  dbhost: griepentrog.it:3306
+  dbname: d03fe35d
+  dbusername: d03fe35d
+  dbpassword: bkxQNnRKVFM2azMzRGRIVWNvZ2M=
+  replicaCount: 1
+
+visitsservice:
+  image: dstpetclinic/spring-petclinic-visits-service
+  version: latest
+  dbhost: griepentrog.it:3306
+  dbname: d03fe35d
+  dbusername: d03fe35d
+  dbpassword: bkxQNnRKVFM2azMzRGRIVWNvZ2M=
+  replicaCount: 1
