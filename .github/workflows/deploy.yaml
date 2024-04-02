@@ -33,4 +33,4 @@ jobs:
 
       - name: Deploy to EKS
         run: |
-          helm upgrade --install chartHelm ./helm/petclinic --namespace production --set image.tag=latest
+          helm upgrade --install petclinic ./helm/petclinic --namespace production --set image.tag=latest
