@@ -44,5 +44,5 @@ jobs:
           cluster-name: petclinic-eks
           config-files: petclinic/prod-values.yaml
           chart-path: petclinic/
-          # values: key1=value1,key2=value2
+          values: key1=value1,key2=value2
           name: petclinic-prod
