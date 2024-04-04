@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: "ingress"
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: nginx-ingress
+spec:
+  ingressClassName: alb
+  rules:
+    - host: petclinic-devops.com
+      http:
+        paths:
+          - path: /*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: "api-gateway"
+                port:
+                  number: 8080
