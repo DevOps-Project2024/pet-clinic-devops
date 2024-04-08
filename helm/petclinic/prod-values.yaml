@@ -36,4 +36,4 @@ database:
   host: a98cad0cb4c1d49a58f4779fa4909ddb-991412999.eu-west-3.elb.amazonaws.com:3306
   name: petclinicdb
   username: petclinicuser
-  password: protected 
+  password: petclinicpassword 
