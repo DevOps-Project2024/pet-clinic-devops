@@ -15,6 +15,7 @@ jobs:
         uses: hashicorp/setup-terraform@v3
         
       - run: terraform init
+        working-directory: ./petclinic-iac-main
 
       - name: Install kubectl
         uses: azure/setup-kubectl@v2.0
