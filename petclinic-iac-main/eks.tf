@@ -1,5 +1,5 @@
 locals {
-  cluster_name = "petclinic-eks"
+  cluster_name = "petclinic-eks2"
 }
 
 module "eks" {
