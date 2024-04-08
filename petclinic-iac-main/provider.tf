@@ -10,5 +10,11 @@ terraform {
     }
   }
 
+  backend "s3" {
+    bucket = "petclinic-devops"
+    key    = "tfstatefiles/terraform.tfstate"
+    region = "eu-west-3"
+  }
+
   required_version = "~> 1.3"
 }
