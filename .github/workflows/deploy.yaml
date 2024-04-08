@@ -11,6 +11,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        
+      - run: terraform init
+
       - name: Install kubectl
         uses: azure/setup-kubectl@v2.0
         with:
@@ -28,8 +33,15 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
 
+      - name: Create EKS Cluster
+        run: terraform apply -auto-approve
+        working-directory: ./petclinic-iac-main
+        env:
+         access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+         secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
       - name: Update kube config
-        run: aws eks update-kubeconfig --name petclinic
+        run: aws eks update-kubeconfig --name petclinic-eks
 
       - name: Deploy to EKS
         run: |
