@@ -13,8 +13,8 @@ jobs:
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
-        run: terraform init
-        working-directory: ./petclinic-iac-main
+        
+      - run: terraform init
 
       - name: Install kubectl
         uses: azure/setup-kubectl@v2.0
@@ -34,7 +34,6 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v1
 
       - name: Create EKS Cluster
-        uses: hashicorp/setup-terraform@v3
         run: terraform apply -auto-approve
         working-directory: ./petclinic-iac-main
 
