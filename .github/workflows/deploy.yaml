@@ -35,7 +35,7 @@ jobs:
         working-directory: ./petclinic-iac-main
 
       - name: Create EKS Cluster
-        run: terraform destroy -auto-approve
+        run: terraform apply -auto-approve
         working-directory: ./petclinic-iac-main
         env:
          access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
