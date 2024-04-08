@@ -1,6 +1,5 @@
 provider "aws" {
   region = "eu-west-3"
-  profile = "student35_jan24_bootcamp_devops_petclinic"
 }
 
 terraform {
@@ -13,7 +12,6 @@ terraform {
 
   backend "s3" {
     bucket = "petclinic"
-    profile = "student35_jan24_bootcamp_devops_petclinic"
     key    = "tfstatefiles/terraform.tfstate"
     region = "eu-west-3"
   }
