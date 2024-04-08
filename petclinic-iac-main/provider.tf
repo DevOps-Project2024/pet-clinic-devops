@@ -1,5 +1,6 @@
 provider "aws" {
   region = "eu-west-3"
+  profile = "dst"
 }
 
 terraform {
@@ -12,6 +13,7 @@ terraform {
 
   backend "s3" {
     bucket = "petclinic"
+    profile = "dst"
     key    = "tfstatefiles/terraform.tfstate"
     region = "eu-west-3"
   }
