@@ -46,7 +46,7 @@ jobs:
 
       - name: Deploy to EKS
         run: |
-          helm upgrade --install petclinic oci://477995668264.dkr.ecr.eu-west-3.amazonaws.com/petclinic -f 'helm/petclinic/prod-values.yaml'
+          helm upgrade --install petclinic oci://844112306741.dkr.ecr.eu-west-3.amazonaws.com//petclinic -f 'helm/petclinic/prod-values.yaml'
 
       #-	name: Deploy Helm to Staging
        # uses: bitovi/github-actions-deploy-eks-helm@v1.2.9
