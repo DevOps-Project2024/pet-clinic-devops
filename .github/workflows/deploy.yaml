@@ -36,6 +36,9 @@ jobs:
       - name: Create EKS Cluster
         run: terraform apply -auto-approve
         working-directory: ./petclinic-iac-main
+        env:
+         access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+         secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
       - name: Update kube config
         run: aws eks update-kubeconfig --name petclinic-eks
