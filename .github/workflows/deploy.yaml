@@ -31,9 +31,6 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
 
-      - run: terraform providers
-        working-directory: ./petclinic-iac-main
-
       - run: terraform init
         working-directory: ./petclinic-iac-main
 
