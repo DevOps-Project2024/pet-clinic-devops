@@ -16,6 +16,7 @@ resource "aws_security_group" "petclinic-rds-sg" {
 
 module "db" {
   source = "terraform-aws-modules/rds/aws"
+  version = "6.5.5"
   identifier = "petclinic-db"
 
   engine            = "mysql"
