@@ -31,7 +31,10 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
 
-      - run: terraform init -upgrade
+      - run: terraform providers
+        working-directory: ./petclinic-iac-main
+
+      - run: terraform init
         working-directory: ./petclinic-iac-main
 
       - name: Create EKS Cluster
