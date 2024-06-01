@@ -4,11 +4,12 @@ on:
   workflow_run:
     workflows: ["Deploy to EKS Staging"]
     types: [completed]
+  uses: ./.github/workflows/deploy-prod.yaml
+  if: github.event.workflow_run.conclusion == 'success'
 
 jobs:
   on-success: # on ne deploie en prod que si le build passe sur staging
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
