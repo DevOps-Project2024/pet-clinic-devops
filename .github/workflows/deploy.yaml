@@ -2,7 +2,7 @@ name: Deploy to EKS Staging
 
 on:
   push:
-    branches: [ "staging", "production" ]
+    branches: [ "staging" ]
 
 jobs:
   deploy:
