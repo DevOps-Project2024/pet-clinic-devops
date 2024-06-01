@@ -35,7 +35,7 @@ jobs:
         working-directory: ./petclinic-iac-main
 
       - name: Create EKS Cluster
-        run: terraform destroy -auto-approve
+        run: terraform apply -auto-approve
         working-directory: ./petclinic-iac-main
         env:
          access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -48,14 +48,14 @@ jobs:
         run: |
           helm upgrade --install petclinic-eks2 oci://844112306741.dkr.ecr.eu-west-3.amazonaws.com/petclinic -f 'helm/petclinic/prod-values.yaml'
           
-      - name: Update kube config
+      - name: Create Prometheus namespace
         run: kubectl create namespace prometheus
 
-      - name: Deploy to EKS
+      - name: Load Prometheus helm chart
         run: |
           helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 
-      - name: Deploy to EKS
+      - name: Deploy Prometheus to EKS
         run: |
           helm upgrade -i prometheus prometheus-community/prometheus --namespace prometheus --set alertmanager.persistentVolume.storageClass="gp2",server.persistentVolume.storageClass="gp2"
 
