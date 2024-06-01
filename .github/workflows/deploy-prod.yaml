@@ -4,7 +4,7 @@ on:
     types: [completed]
 
 jobs:
-  on-success:
+  on-success: # on ne deploie en prod que si le build passe sur staging
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
