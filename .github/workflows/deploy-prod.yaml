@@ -1,3 +1,5 @@
+name: Deploy to EKS Production
+
 on:
   workflow_run:
     workflows: ["Deploy to EKS Staging"]
