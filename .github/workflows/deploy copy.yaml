@@ -2,8 +2,9 @@ name: Test
 
 on:
   workflow_run:
-    - workflows: [Deploy to EKS Staging]
-      types: [completed]
+    workflows: ["Build"]
+    types: [requested]
+    branches: ["production"]
 
 jobs:
   on-success:
