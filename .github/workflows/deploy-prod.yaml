@@ -5,7 +5,7 @@ on:
     branches: [ "production" ]
 
 jobs:
-  deploy: # on ne deploie en prod que si le build passe sur staging
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -35,7 +35,7 @@ jobs:
         working-directory: ./petclinic-iac-main
 
       - name: Create EKS Cluster
-        run: terraform destroy -auto-approve
+        run: terraform apply -auto-approve
         working-directory: ./petclinic-iac-main
         env:
          access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
