@@ -1,10 +1,8 @@
 name: Deploy to EKS Production
 
 on:
-  workflow_run:
-    workflows: [Deploy to EKS Staging]
-    types:
-      - completed
+  push:
+    branches: [ "production" ]
 
 jobs:
   deploy: # on ne deploie en prod que si le build passe sur staging
