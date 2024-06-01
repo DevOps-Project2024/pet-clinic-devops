@@ -1,11 +1,10 @@
-name: Deploy to EKS Staging
-
 on:
-  push:
-    branches: [ "staging" ]
+  workflow_run:
+    workflows: ["Deploy to EKS Staging"]
+    types: [completed]
 
 jobs:
-  deploy:
+  on-success:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -46,4 +45,15 @@ jobs:
 
       - name: Deploy to EKS
         run: |
-          helm upgrade --install petclinic-eks2 oci://844112306741.dkr.ecr.eu-west-3.amazonaws.com/petclinic -f 'helm/petclinic/staging-values.yaml'
+          helm upgrade --install petclinic-eks2 oci://844112306741.dkr.ecr.eu-west-3.amazonaws.com/petclinic -f 'helm/petclinic/prod-values.yaml'
+
+       # uses: bitovi/github-actions-deploy-eks-helm@v1.2.9
+        #with:
+         # aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          #aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          #aws-region: eu-west-3
+          #cluster-name: petclinic-eks
+          #config-files: petclinic/prod-values.yaml
+          #chart-path: petclinic/
+          #values: key1=value1,key2=value2
+          #name: petclinic-prod
