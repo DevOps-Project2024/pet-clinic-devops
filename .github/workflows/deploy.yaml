@@ -3,10 +3,6 @@ name: Deploy to EKS Staging
 on:
   push:
     branches: [ "staging", "production" ]
-  workflow_run:
-    types: [completed]
-    workflows: [Deploy to EKS Staging]
-
 
 jobs:
   deploy:
