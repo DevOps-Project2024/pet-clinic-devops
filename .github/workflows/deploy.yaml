@@ -48,6 +48,6 @@ jobs:
         run: |
           helm upgrade --install petclinic-eks2 oci://844112306741.dkr.ecr.eu-west-3.amazonaws.com/petclinic -f 'helm/petclinic/staging-values.yaml'
       
-      - name: Deploy in production #deploy in production if staging deployment is a success
+      - name: Deploy in production #deploy in production if staging deployment is a success 
         run: |
           helm upgrade --install petclinic-eks2 oci://844112306741.dkr.ecr.eu-west-3.amazonaws.com/petclinic -f 'helm/petclinic/prod-values.yaml'
