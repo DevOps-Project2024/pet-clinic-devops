@@ -1,5 +1,5 @@
 locals {
-  cluster_name = "petclinic-eks2"
+  cluster_name = "petclinic-eks"
 }
 
 module "eks" {
@@ -27,7 +27,7 @@ module "eks" {
       instance_types = ["t2.large"]
 
       min_size     = 1
-      max_size     = 2
+      max_size     = 3
       desired_size = 2
     }
   }
