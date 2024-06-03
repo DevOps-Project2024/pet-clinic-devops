@@ -10,8 +10,8 @@ customersservice:
   version: latest
   dbhost: petclinic-db.cxy880gqiop7.eu-west-3.rds.amazonaws.com:3306
   dbname: customersdb
-  dbusername: customersuser
-  dbpassword: bkxQNnRKVFM2azMzRGRIVWNvZ2M=
+  dbusername: root
+  dbpassword: petclinic
   replicaCount: 1
 
 vetsservice:
@@ -19,8 +19,8 @@ vetsservice:
   version: latest
   dbhost: petclinic-db.cxy880gqiop7.eu-west-3.rds.amazonaws.com:3306
   dbname: vetsdb
-  dbusername: vetsuser
-  dbpassword: bkxQNnRKVFM2azMzRGRIVWNvZ2M=
+  dbusername: root
+  dbpassword: petclinic
   replicaCount: 1
 
 visitsservice:
@@ -28,8 +28,8 @@ visitsservice:
   version: latest
   dbhost: petclinic-db.cxy880gqiop7.eu-west-3.rds.amazonaws.com:3306
   dbname: visitsdb
-  dbusername: visitsuser
-  dbpassword: bkxQNnRKVFM2azMzRGRIVWNvZ2M=
+  dbusername: root
+  dbpassword: petclinic
   replicaCount: 1
 
 database:

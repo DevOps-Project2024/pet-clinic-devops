@@ -51,7 +51,7 @@ jobs:
 
       - name: Deploy in production #deploy in production if staging deployment is a success
         run: |
-          helm uninstall petclinic-eks -n staging
+          helm uninstall petclinic-eks -n production
       
       - name: Deploy in production #deploy in production if staging deployment is a success
         run: |
