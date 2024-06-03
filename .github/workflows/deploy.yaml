@@ -51,7 +51,7 @@ jobs:
 
       - name: Uninstall Helm Chart #deploy in production if staging deployment is a success 
         run: |
-          helm uninstall petclinic-eks
+          helm uninstall petclinic-0.0.1
       
       # - name: Deploy in production #deploy in production if staging deployment is a success 
       #   run: |
