@@ -48,3 +48,19 @@ jobs:
           docker push $DOCKER_USERNAME/spring-petclinic-api-gateway:latest
           docker push $DOCKER_USERNAME/zipkin:latest
           docker push $DOCKER_USERNAME/spring-petclinic-admin-server:latest
+      
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-west-3
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - name: Package and push helm chart to Amazon ECR
+        run: |
+          helm package petclinic
+          helm push petclinic-0.0.1.tgz oci://844112306741.dkr.ecr.eu-west-3.amazonaws.com/
