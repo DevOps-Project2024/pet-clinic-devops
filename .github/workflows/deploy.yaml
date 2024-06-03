@@ -44,10 +44,6 @@ jobs:
 
       - name: Update kube config
         run: aws eks update-kubeconfig --name petclinic-eks
-
-      - name: Deploy in production #deploy in production if staging deployment is a success
-        run: |
-          helm uninstall petclinic-eks -n staging
       
       - name: Deploy in production #deploy in production if staging deployment is a success
         run: |
