@@ -8,27 +8,27 @@ apigateway:
 customersservice:
   image: dstpetclinic/spring-petclinic-customers-service
   version: latest
-  dbhost: griepentrog.it:3306
-  dbname: d03fe35d
-  dbusername: d03fe35d
+  dbhost: petclinic-db.cxy880gqiop7.eu-west-3.rds.amazonaws.com:3306
+  dbname: customersdb
+  dbusername: customersuser
   dbpassword: bkxQNnRKVFM2azMzRGRIVWNvZ2M=
   replicaCount: 1
 
 vetsservice:
   image: dstpetclinic/spring-petclinic-vets-service
   version: latest
-  dbhost: griepentrog.it:3306
-  dbname: d03fe35d
-  dbusername: d03fe35d
+  dbhost: petclinic-db.cxy880gqiop7.eu-west-3.rds.amazonaws.com:3306
+  dbname: vetsdb
+  dbusername: vetsuser
   dbpassword: bkxQNnRKVFM2azMzRGRIVWNvZ2M=
   replicaCount: 1
 
 visitsservice:
   image: dstpetclinic/spring-petclinic-visits-service
   version: latest
-  dbhost: griepentrog.it:3306
-  dbname: d03fe35d
-  dbusername: d03fe35d
+  dbhost: petclinic-db.cxy880gqiop7.eu-west-3.rds.amazonaws.com:3306
+  dbname: visitsdb
+  dbusername: visitsuser
   dbpassword: bkxQNnRKVFM2azMzRGRIVWNvZ2M=
   replicaCount: 1
 
