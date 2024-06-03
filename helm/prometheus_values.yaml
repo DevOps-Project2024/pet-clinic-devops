@@ -1,0 +1,14 @@
+serviceAccounts:
+  server:
+    name: amp-iamproxy-ingest-service-account
+    annotations: 
+      eks.amazonaws.com/role-arn: arn:aws:iam::844112306741:role/amp-iamproxy-ingest-role
+server:
+  remoteWrite:
+    - url: https://aps-workspaces.eu-west-3.amazonaws.com/workspaces/ws-14e23c84-130e-40ce-840b-a89c3a9a2441/api/v1/remote_write
+      sigv4:
+        region: eu-west-3
+      queue_config:
+        max_samples_per_send: 1000
+        max_shards: 200
+        capacity: 2500
