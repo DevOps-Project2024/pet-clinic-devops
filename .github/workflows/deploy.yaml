@@ -48,21 +48,17 @@ jobs:
       # - name: Deploy to EKS
       #   run: |
       #     helm upgrade --install petclinic-eks oci://844112306741.dkr.ecr.eu-west-3.amazonaws.com/petclinic -f 'helm/petclinic/staging-values.yaml'
-
-      - name: Uninstall Helm Chart #deploy in production if staging deployment is a success 
-        run: |
-          helm uninstall petclinic-0.0.1
       
-      # - name: Deploy in production #deploy in production if staging deployment is a success 
-      #   run: |
-      #     helm upgrade --install petclinic-eks oci://844112306741.dkr.ecr.eu-west-3.amazonaws.com/petclinic -n production -f 'helm/petclinic/prod-values.yaml'
+      - name: Deploy in production #deploy in production if staging deployment is a success 
+        run: |
+          helm upgrade --install petclinic-eks oci://844112306741.dkr.ecr.eu-west-3.amazonaws.com/petclinic -n production -f 'helm/petclinic/prod-values.yaml'
 
-      # - name: Add new Helm chart repositories 
-      #   run: |
-      #     helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-      #     helm repo add kube-state-metrics https://kubernetes.github.io/kube-state-metrics
-      #     helm repo update
+      - name: Add new Helm chart repositories 
+        run: |
+          helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+          helm repo add kube-state-metrics https://kubernetes.github.io/kube-state-metrics
+          helm repo update
 
-      # - name: Deploy Prometheus
-      #   run: |
-      #     helm upgrade --install prometheus prometheus-community/prometheus -n prometheus -f 'helm/prometheus_values.yaml'
+      - name: Deploy Prometheus
+        run: |
+          helm upgrade --install prometheus prometheus-community/prometheus -n prometheus -f 'helm/prometheus_values.yaml'
