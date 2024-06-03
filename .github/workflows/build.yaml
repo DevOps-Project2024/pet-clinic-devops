@@ -61,6 +61,7 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v1
 
       - name: Package and push helm chart to Amazon ECR
+        working-directory: ./helm
         run: |
           helm package petclinic
           helm push petclinic-0.0.1.tgz oci://844112306741.dkr.ecr.eu-west-3.amazonaws.com/
