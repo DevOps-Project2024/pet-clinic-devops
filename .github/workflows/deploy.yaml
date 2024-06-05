@@ -2,7 +2,7 @@ name: Deploy to EKS
 
 on:
   push:
-    branches: [ "production" ]
+    branches: [ "staging" ]
 
 jobs:
   deploy:
@@ -49,10 +49,6 @@ jobs:
         run: |
           helm upgrade --install petclinic-eks oci://844112306741.dkr.ecr.eu-west-3.amazonaws.com/petclinic -n staging -f 'helm/petclinic/staging-values.yaml'
       
-      - name: Deploy in production #deploy in production if staging deployment is a success
-        run: |
-          helm upgrade --install petclinic-eks oci://844112306741.dkr.ecr.eu-west-3.amazonaws.com/petclinic -n production -f 'helm/petclinic/prod-values.yaml'
-
       - name: Add new Helm chart repositories 
         run: |
           helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
